@@ -1,0 +1,8 @@
+{
+ "server":"45.78.52.76",
+ "server_port":29970,
+ "local_port":1080,
+ "password":"F>dpbD9HP7",
+ "timeout":600,
+ "method":"aes-256-cfb"
+}
