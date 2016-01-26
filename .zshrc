@@ -7,6 +7,7 @@
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p%{$fg[cyan]%}%d %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%}>'
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -49,11 +50,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git autojump)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+  export PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/alidata/server/mysql/bin:/alidata/server/nginx/sbin:/alidata/server/php/sbin:/alidata/server/php/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -80,5 +81,35 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zshrc"
+#alias ohmyzsh="vim ~/.oh-my-zsh"
+
+# autojump config
+[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
+
+# my config
+alias cls='clear'
+alias ll='ls -l'
+alias la='ls -a'
+alias vi='vim'
+alias em='emacs'
+alias javac="javac -J-Dfile.encoding=utf8"
+alias grep="grep --color=auto"
+alias -s html=em   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
+alias -s rb=em     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
+alias -s py=em     # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s js=em
+alias -s c=em
+alias -s java=em
+alias -s txt=em
+alias -s gz='tar -xzvf'
+alias -s tgz='tar -xzvf'
+alias -s zip='unzip'
+alias -s bz2='tar -xjvf'
+
+# nvm mirror
+
+# export NVM_NODEJS_ORG_MIRROR="http://npm.taobao.org/mirrors/node"
+# export NVM_IOJS_ORG_MIRROR="http://npm.taobao.org/mirrors/iojs"
+# export NVM_DIR="/root/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
