@@ -139,7 +139,7 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 
 export os=$(uname -s)
-if [ $os == "Darwin" ]; then
+if [[ $os == "Darwin" ]]; then
   # proxy list
   alias proxy='export all_proxy=socks5://127.0.0.1:1086'
   alias unproxy='unset all_proxy'
@@ -161,4 +161,9 @@ if [ $os == "Darwin" ]; then
 
   # sqlplus config
   [[ -s "/usr/local/etc/profile.d/sqlplus.sh" ]] && source "/usr/local/etc/profile.d/sqlplus.sh"
+fi
+if [[ $os == "Linux" ]]; then
+ if [[ $USER == "ubuntu" ]]; then
+  [[ -s /home/ubuntu/.autojump/etc/profile.d/autojump.sh ]] && source /home/ubuntu/.autojump/etc/profile.d/autojump.sh
+ fi
 fi
