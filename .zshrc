@@ -1,5 +1,6 @@
 if [[ -f ~/.zshrc.local.theme ]] {
-  source ~/.zshrc.local.theme
+       source ~/.zshrc.local.theme
+
 }
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$PATH
@@ -23,10 +24,11 @@ DEFAULT_USER="songwei"
 if [[ "$ZSH_POWERLINE_THEME" == "true" ]] {
 ZSH_THEME_RANDOM_CANDIDATES=("agnoster" "amuse")
 } else {
-ZSH_THEME_RANDOM_CANDIDATES =(
-  "avit" "bira" "candy" "dogenpunk" "junkfood" "mortalscumbag"
-  "rkj-repos" "smt" "sporty_256" "steeef" "suvash" "ys" "bureau"
-) }
+       ZSH_THEME_RANDOM_CANDIDATES=(
+           "avit" "bira" "candy" "dogenpunk" "junkfood" "mortalscumbag"
+           "rkj-repos" "smt" "sporty_256" "steeef" "suvash" "ys" "bureau"
+       )
+}
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -136,24 +138,27 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 
-# proxy list
-alias proxy='export all_proxy=socks5://127.0.0.1:1086'
-alias unproxy='unset all_proxy'
+export os=$(uname -s)
+if [ $os == "Darwin" ]; then
+  # proxy list
+  alias proxy='export all_proxy=socks5://127.0.0.1:1086'
+  alias unproxy='unset all_proxy'
 
-# custom bin path
-export PATH=$HOME/bin:$PATH
+  # custom bin path
+  export PATH=$HOME/bin:$PATH
 
-# nvm config
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  # nvm config
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# autojump config
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+  # autojump config
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/songwei/.sdkman"
-[[ -s "/Users/songwei/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/songwei/.sdkman/bin/sdkman-init.sh"
+  # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+  export SDKMAN_DIR="/Users/songwei/.sdkman"
+  [[ -s "/Users/songwei/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/songwei/.sdkman/bin/sdkman-init.sh"
 
-# sqlplus config
-[ -f /usr/local/etc/profile.d/sqlplus.sh ] && source "/usr/local/etc/profile.d/sqlplus.sh"
+  # sqlplus config
+  [[ -s "/usr/local/etc/profile.d/sqlplus.sh" ]] && source "/usr/local/etc/profile.d/sqlplus.sh"
+fi
